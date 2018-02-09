@@ -22,6 +22,7 @@
     "karma-firefox-launcher": "^1.0.1",
     "karma-jasmine": "^1.1.0",
     "karma-junit-reporter": "^1.2.0",
+    "loader-utils": "^1.1.0",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.11.1",
     "webpack-merge": "^4.1.1"
@@ -29,6 +30,8 @@
   "scripts": {
     "build": "webpack --env production",
     "watch": "npm run build -- --watch",
+    "chrome": "node --inspect node_modules/.bin/webpack-dev-server --env development",
+    "chrome-prod": "node --inspect node_modules/.bin/webpack-dev-server --env production",
     "start": "nodemon -w webpack.config.js -x webpack-dev-server -- --env development",
     "start-prod": "nodemon -w webpack.config.js -x webpack-dev-server -- --env production",
     "postinstall": "node node_modules/bower/bin/bower install",
