@@ -1,3 +1,4 @@
+
 class Scoring {
   constructor() {
     this.score = 0;

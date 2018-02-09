@@ -1,3 +1,4 @@
+
 function Card(card) {
   this.suit = card.suit;
   this.rank = card.rank;
