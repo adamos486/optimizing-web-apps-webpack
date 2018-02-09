@@ -3,6 +3,7 @@ const webpack = require("webpack");
 const merge = require("webpack-merge");
 const babelLoader = require("./babelLoader");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
+const NpmInstallPlugin = require("npm-install-webpack-plugin");
 
 
 module.exports = function (env) {
@@ -23,6 +24,7 @@ module.exports = function (env) {
       hotOnly: true
     },
     plugins: [
+      new NpmInstallPlugin(),
       new CleanWebpackPlugin(['app/dist']),
       new webpack.DefinePlugin({
         ENV_IS_DEVELOPMENT: isDevelopment,

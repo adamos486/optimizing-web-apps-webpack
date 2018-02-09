@@ -1,3 +1,4 @@
+const numeral = require("numeral");
 
 class Scoring {
   constructor() {
@@ -5,7 +6,7 @@ class Scoring {
   }
 
   newGame() {
-    this.score = 0;
+    this.score = 1000;
   };
 
   tableauCardTurnedUp() {
@@ -19,6 +20,10 @@ class Scoring {
   wasteRecycled() {
     this.score = Math.max(this.score - 100, 0);
   };
+
+  formattedScore() {
+    return numeral(this.score).format('0,0');
+  }
 }
 
 function scoreForMoving(source, destination) {
