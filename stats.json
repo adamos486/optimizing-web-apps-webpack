@@ -1,0 +1,507 @@
+{
+  "errors": [],
+  "warnings": [],
+  "version": "3.10.0",
+  "hash": "ec894087e54c958eaf3c",
+  "time": 57,
+  "publicPath": "/dist/",
+  "assetsByChunkName": {
+    "main": "app.bundle.js"
+  },
+  "assets": [
+    {
+      "name": "app.bundle.js",
+      "size": 35867,
+      "chunks": [
+        0
+      ],
+      "chunkNames": [
+        "main"
+      ],
+      "emitted": true
+    }
+  ],
+  "filteredAssets": 0,
+  "entrypoints": {
+    "main": {
+      "chunks": [
+        0
+      ],
+      "assets": [
+        "app.bundle.js"
+      ]
+    }
+  },
+  "chunks": [
+    {
+      "id": 0,
+      "rendered": true,
+      "initial": true,
+      "entry": true,
+      "extraAsync": false,
+      "size": 6195,
+      "names": [
+        "main"
+      ],
+      "files": [
+        "app.bundle.js"
+      ],
+      "hash": "17180c04469ac4004447",
+      "parents": [],
+      "modules": [
+        {
+          "id": "./app/app.js",
+          "identifier": "/Users/pivotal/workspace/optimizing-web-apps-webpack/app/app.js",
+          "name": "./app/app.js",
+          "index": 0,
+          "index2": 5,
+          "size": 210,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            0
+          ],
+          "assets": [],
+          "issuer": null,
+          "issuerId": null,
+          "issuerName": null,
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "reasons": [],
+          "usedExports": true,
+          "providedExports": [],
+          "optimizationBailout": [],
+          "depth": 0,
+          "source": "import \"./klondike/scoring.js\";\nimport \"./klondike/klondike.js\";\nimport \"./klondike/board.js\";\nimport \"./klondike/game.js\";\nimport \"./cards/cards.js\";\n\nangular.module(\"solitaire\", [\"klondike\", \"ngDraggable\"]);\n"
+        },
+        {
+          "id": "./app/cards/cards.js",
+          "identifier": "/Users/pivotal/workspace/optimizing-web-apps-webpack/app/cards/cards.js",
+          "name": "./app/cards/cards.js",
+          "index": 5,
+          "index2": 4,
+          "size": 1106,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            0
+          ],
+          "assets": [],
+          "issuer": "/Users/pivotal/workspace/optimizing-web-apps-webpack/app/app.js",
+          "issuerId": "./app/app.js",
+          "issuerName": "./app/app.js",
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "reasons": [
+            {
+              "moduleId": "./app/app.js",
+              "moduleIdentifier": "/Users/pivotal/workspace/optimizing-web-apps-webpack/app/app.js",
+              "module": "./app/app.js",
+              "moduleName": "./app/app.js",
+              "type": "harmony import",
+              "userRequest": "./cards/cards.js",
+              "loc": "5:0-26"
+            }
+          ],
+          "usedExports": false,
+          "providedExports": null,
+          "optimizationBailout": [],
+          "depth": 1,
+          "source": "function Card(card) {\n  this.suit = card.suit;\n  this.rank = card.rank;\n  this.image = (Card.ranksInImagesOrder.indexOf(this.rank) * 4 + Card.suitsInImagesOrder.indexOf(this.suit) + 1) + \".png\";\n  this.color = card.suit === \"Spades\" || card.suit === \"Clubs\" ? \"black\" : \"red\";\n  this.turnedUp = false;\n}\n\nCard.ranksInImagesOrder = [\"Ace\", \"King\", \"Queen\", \"Jack\", \"10\", \"9\", \"8\", \"7\", \"6\", \"5\", \"4\", \"3\", \"2\"];\nCard.suitsInImagesOrder = [\"Clubs\", \"Spades\", \"Hearts\", \"Diamonds\"];\n\nCard.prototype.turnUp = function () {\n  this.turnedUp = true;\n};\nCard.prototype.turnDown = function () {\n  this.turnedUp = false;\n};\n\nfunction Deck() {\n  this.unShuffled = function unShuffled() {\n    return _.chain(Card.ranksInImagesOrder)\n      .map(function (rank) {\n        return Card.suitsInImagesOrder.map(function (suit) {\n          return {\n            suit: suit,\n            rank: rank\n          };\n        });\n      })\n      .flatten()\n      .map(function (card) {\n        return new Card(card);\n      })\n      .value();\n  };\n\n  this.shuffled = function shuffled() {\n    return _.shuffle(this.unShuffled());\n  };\n}"
+        },
+        {
+          "id": "./app/klondike/board.js",
+          "identifier": "/Users/pivotal/workspace/optimizing-web-apps-webpack/app/klondike/board.js",
+          "name": "./app/klondike/board.js",
+          "index": 3,
+          "index2": 2,
+          "size": 1516,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            0
+          ],
+          "assets": [],
+          "issuer": "/Users/pivotal/workspace/optimizing-web-apps-webpack/app/app.js",
+          "issuerId": "./app/app.js",
+          "issuerName": "./app/app.js",
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "reasons": [
+            {
+              "moduleId": "./app/app.js",
+              "moduleIdentifier": "/Users/pivotal/workspace/optimizing-web-apps-webpack/app/app.js",
+              "module": "./app/app.js",
+              "moduleName": "./app/app.js",
+              "type": "harmony import",
+              "userRequest": "./klondike/board.js",
+              "loc": "3:0-29"
+            }
+          ],
+          "usedExports": false,
+          "providedExports": null,
+          "optimizationBailout": [],
+          "depth": 1,
+          "source": "(function () {\n  \"use strict\";\n\n  angular.module(\"klondike.board\", [\"ngRoute\", \"klondike.game\"])\n    .config([\"$routeProvider\", function ($routeProvider) {\n      $routeProvider\n        .when(\"/board\", {\n          templateUrl: \"klondike/board.html\",\n          controller: \"KlondikeController\"\n        })\n        .otherwise({redirectTo: \"/board\"});\n    }])\n    .controller(\"KlondikeController\", [\"$scope\", \"klondikeGame\", \"scoring\", function KlondikeController($scope, klondikeGame, scoring) {\n      klondikeGame.newGame();\n      $scope.game = klondikeGame;\n      $scope.scoring = scoring;\n    }])\n    .directive(\"sNoPile\", function () {\n      return {\n        restrict: \"E\",\n        template: \"<div class=\\\"no-pile\\\"></div>\"\n      };\n    })\n    .directive(\"sTableau\", function () {\n      return {\n        restrict: \"E\",\n        templateUrl: \"klondike/piles/tableau.html\"\n      };\n    })\n    .directive(\"sFoundation\", function () {\n      return {\n        restrict: \"E\",\n        templateUrl: \"klondike/piles/foundation.html\"\n      };\n    })\n    .directive(\"sCard\", function () {\n      return {\n        restrict: \"A\",\n        templateUrl: \"cards/card.html\",\n        scope: {\n          card: \"=\"\n        }\n      };\n    })\n    .directive(\"sRemainder\", function () {\n      return {\n        restrict: \"E\",\n        templateUrl: \"klondike/piles/remainder.html\"\n      };\n    })\n    .directive(\"sWaste\", function () {\n      return {\n        restrict: \"E\",\n        templateUrl: \"klondike/piles/waste.html\"\n      };\n    });\n})();\n"
+        },
+        {
+          "id": "./app/klondike/game.js",
+          "identifier": "/Users/pivotal/workspace/optimizing-web-apps-webpack/app/klondike/game.js",
+          "name": "./app/klondike/game.js",
+          "index": 4,
+          "index2": 3,
+          "size": 1871,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            0
+          ],
+          "assets": [],
+          "issuer": "/Users/pivotal/workspace/optimizing-web-apps-webpack/app/app.js",
+          "issuerId": "./app/app.js",
+          "issuerName": "./app/app.js",
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "reasons": [
+            {
+              "moduleId": "./app/app.js",
+              "moduleIdentifier": "/Users/pivotal/workspace/optimizing-web-apps-webpack/app/app.js",
+              "module": "./app/app.js",
+              "moduleName": "./app/app.js",
+              "type": "harmony import",
+              "userRequest": "./klondike/game.js",
+              "loc": "4:0-28"
+            }
+          ],
+          "usedExports": false,
+          "providedExports": null,
+          "optimizationBailout": [],
+          "depth": 1,
+          "source": "(function () {\n  \"use strict\";\n\n  angular.module(\"klondike.game\", [])\n    .service(\"klondikeGame\", [\"scoring\", KlondikeGame]);\n\n  function KlondikeGame(scoring) {\n    this.newGame = function newGame() {\n      var cards = new Deck().shuffled();\n      this.newGameFromDeck(cards);\n    };\n\n    this.newGameFromDeck = function (cards) {\n      scoring.newGame();\n      turnAllCardsDown(cards);\n      this.tableaus = dealTableaus(cards);\n      this.foundations = buildFoundations();\n      this.remainder = dealRemainder(cards);\n    };\n\n    function turnAllCardsDown(cards) {\n      cards.forEach(function (card) {\n        card.turnDown();\n      });\n    }\n\n    function dealTableaus(cards) {\n      var tableaus = [\n        new TableauPile(cards.slice(0, 1), scoring),\n        new TableauPile(cards.slice(1, 3), scoring),\n        new TableauPile(cards.slice(3, 6), scoring),\n        new TableauPile(cards.slice(6, 10), scoring),\n        new TableauPile(cards.slice(10, 15), scoring),\n        new TableauPile(cards.slice(15, 21), scoring),\n        new TableauPile(cards.slice(21, 28), scoring)\n      ];\n      tableaus.forEach(function (tableau) {\n        tableau.turnTopCardUp();\n      });\n      return tableaus;\n    }\n\n    function buildFoundations() {\n      return _.range(1, 5)\n        .map(function () {\n          return new FoundationPile([], scoring);\n        });\n    }\n\n    function dealRemainder(cards) {\n      return new RemainderPile(cards.slice(28), scoring);\n    }\n  }\n\n  KlondikeGame.prototype.tryMoveTopCardToAnyFoundation = function (sourcePile) {\n    if (sourcePile.isEmpty()) {\n      return;\n    }\n    var foundationThatWillAccept = _.find(this.foundations, function (foundation) {\n      return foundation.willAcceptCard(sourcePile.topCard());\n    });\n    if (foundationThatWillAccept) {\n      foundationThatWillAccept.moveCardsFrom(sourcePile);\n    }\n  };\n\n})();\n"
+        },
+        {
+          "id": "./app/klondike/klondike.js",
+          "identifier": "/Users/pivotal/workspace/optimizing-web-apps-webpack/app/klondike/klondike.js",
+          "name": "./app/klondike/klondike.js",
+          "index": 2,
+          "index2": 1,
+          "size": 93,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            0
+          ],
+          "assets": [],
+          "issuer": "/Users/pivotal/workspace/optimizing-web-apps-webpack/app/app.js",
+          "issuerId": "./app/app.js",
+          "issuerName": "./app/app.js",
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "reasons": [
+            {
+              "moduleId": "./app/app.js",
+              "moduleIdentifier": "/Users/pivotal/workspace/optimizing-web-apps-webpack/app/app.js",
+              "module": "./app/app.js",
+              "moduleName": "./app/app.js",
+              "type": "harmony import",
+              "userRequest": "./klondike/klondike.js",
+              "loc": "2:0-32"
+            }
+          ],
+          "usedExports": false,
+          "providedExports": null,
+          "optimizationBailout": [],
+          "depth": 1,
+          "source": "angular.module(\"klondike\", [\n  \"klondike.game\",\n  \"klondike.board\",\n  \"klondike.scoring\"\n]);\n"
+        },
+        {
+          "id": "./app/klondike/scoring.js",
+          "identifier": "/Users/pivotal/workspace/optimizing-web-apps-webpack/app/klondike/scoring.js",
+          "name": "./app/klondike/scoring.js",
+          "index": 1,
+          "index2": 0,
+          "size": 1399,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            0
+          ],
+          "assets": [],
+          "issuer": "/Users/pivotal/workspace/optimizing-web-apps-webpack/app/app.js",
+          "issuerId": "./app/app.js",
+          "issuerName": "./app/app.js",
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "reasons": [
+            {
+              "moduleId": "./app/app.js",
+              "moduleIdentifier": "/Users/pivotal/workspace/optimizing-web-apps-webpack/app/app.js",
+              "module": "./app/app.js",
+              "moduleName": "./app/app.js",
+              "type": "harmony import",
+              "userRequest": "./klondike/scoring.js",
+              "loc": "1:0-31"
+            }
+          ],
+          "usedExports": false,
+          "providedExports": null,
+          "optimizationBailout": [],
+          "depth": 1,
+          "source": "function Scoring() {\n  \"use strict\";\n\n  this.score = 0;\n\n  this.newGame = function () {\n    this.score = 0;\n  };\n  this.tableauCardTurnedUp = function () {\n    this.score += 5;\n  };\n  this.dropped = function (source, destionation) {\n    this.score += scoreForMoving(source, destionation) || 0;\n  };\n  this.wasteRecycled = function () {\n    this.score = Math.max(this.score - 100, 0);\n  };\n\n  function scoreForMoving(source, destionation) {\n    if (destionation.name === \"TableauPile\") {\n      if (source.name === \"FoundationPile\") {\n        return -15;\n      }\n      return 5;\n    }\n    if (destionation.name === \"FoundationPile\") {\n      if (source.name === \"TableauPile\" || source.name === \"WastePile\") {\n        return 10;\n      }\n    }\n  }\n}\n\nconsole.log(\"[scoring] was evaluated\");\nif (module.hot) {\n  //module can update itself.\n  module.hot.accept(console.log.bind(console));\n  const doc = angular.element(document);\n  const injector = doc.injector();\n  if (injector) {\n    const actualService = injector.get(\"scoring\");\n    const newScoringService = new Scoring();\n    Object.keys(actualService)\n      .filter(key => typeof actualService[key] === \"function\")\n      .forEach(key => actualService[key] = newScoringService[key]);\n    doc.find(\"html\").scope().$apply();\n    console.info(\"[scoring] Hot Swapped!!\");\n  }\n}\n\nangular.module(\"klondike.scoring\", [])\n  .service(\"scoring\", [Scoring]);\n"
+        }
+      ],
+      "filteredModules": 0,
+      "origins": [
+        {
+          "moduleId": "./app/app.js",
+          "module": "/Users/pivotal/workspace/optimizing-web-apps-webpack/app/app.js",
+          "moduleIdentifier": "/Users/pivotal/workspace/optimizing-web-apps-webpack/app/app.js",
+          "moduleName": "./app/app.js",
+          "loc": "",
+          "name": "main",
+          "reasons": []
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "./app/app.js",
+      "identifier": "/Users/pivotal/workspace/optimizing-web-apps-webpack/app/app.js",
+      "name": "./app/app.js",
+      "index": 0,
+      "index2": 5,
+      "size": 210,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        0
+      ],
+      "assets": [],
+      "issuer": null,
+      "issuerId": null,
+      "issuerName": null,
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "reasons": [],
+      "usedExports": true,
+      "providedExports": [],
+      "optimizationBailout": [],
+      "depth": 0,
+      "source": "import \"./klondike/scoring.js\";\nimport \"./klondike/klondike.js\";\nimport \"./klondike/board.js\";\nimport \"./klondike/game.js\";\nimport \"./cards/cards.js\";\n\nangular.module(\"solitaire\", [\"klondike\", \"ngDraggable\"]);\n"
+    },
+    {
+      "id": "./app/cards/cards.js",
+      "identifier": "/Users/pivotal/workspace/optimizing-web-apps-webpack/app/cards/cards.js",
+      "name": "./app/cards/cards.js",
+      "index": 5,
+      "index2": 4,
+      "size": 1106,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        0
+      ],
+      "assets": [],
+      "issuer": "/Users/pivotal/workspace/optimizing-web-apps-webpack/app/app.js",
+      "issuerId": "./app/app.js",
+      "issuerName": "./app/app.js",
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "reasons": [
+        {
+          "moduleId": "./app/app.js",
+          "moduleIdentifier": "/Users/pivotal/workspace/optimizing-web-apps-webpack/app/app.js",
+          "module": "./app/app.js",
+          "moduleName": "./app/app.js",
+          "type": "harmony import",
+          "userRequest": "./cards/cards.js",
+          "loc": "5:0-26"
+        }
+      ],
+      "usedExports": false,
+      "providedExports": null,
+      "optimizationBailout": [],
+      "depth": 1,
+      "source": "function Card(card) {\n  this.suit = card.suit;\n  this.rank = card.rank;\n  this.image = (Card.ranksInImagesOrder.indexOf(this.rank) * 4 + Card.suitsInImagesOrder.indexOf(this.suit) + 1) + \".png\";\n  this.color = card.suit === \"Spades\" || card.suit === \"Clubs\" ? \"black\" : \"red\";\n  this.turnedUp = false;\n}\n\nCard.ranksInImagesOrder = [\"Ace\", \"King\", \"Queen\", \"Jack\", \"10\", \"9\", \"8\", \"7\", \"6\", \"5\", \"4\", \"3\", \"2\"];\nCard.suitsInImagesOrder = [\"Clubs\", \"Spades\", \"Hearts\", \"Diamonds\"];\n\nCard.prototype.turnUp = function () {\n  this.turnedUp = true;\n};\nCard.prototype.turnDown = function () {\n  this.turnedUp = false;\n};\n\nfunction Deck() {\n  this.unShuffled = function unShuffled() {\n    return _.chain(Card.ranksInImagesOrder)\n      .map(function (rank) {\n        return Card.suitsInImagesOrder.map(function (suit) {\n          return {\n            suit: suit,\n            rank: rank\n          };\n        });\n      })\n      .flatten()\n      .map(function (card) {\n        return new Card(card);\n      })\n      .value();\n  };\n\n  this.shuffled = function shuffled() {\n    return _.shuffle(this.unShuffled());\n  };\n}"
+    },
+    {
+      "id": "./app/klondike/board.js",
+      "identifier": "/Users/pivotal/workspace/optimizing-web-apps-webpack/app/klondike/board.js",
+      "name": "./app/klondike/board.js",
+      "index": 3,
+      "index2": 2,
+      "size": 1516,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        0
+      ],
+      "assets": [],
+      "issuer": "/Users/pivotal/workspace/optimizing-web-apps-webpack/app/app.js",
+      "issuerId": "./app/app.js",
+      "issuerName": "./app/app.js",
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "reasons": [
+        {
+          "moduleId": "./app/app.js",
+          "moduleIdentifier": "/Users/pivotal/workspace/optimizing-web-apps-webpack/app/app.js",
+          "module": "./app/app.js",
+          "moduleName": "./app/app.js",
+          "type": "harmony import",
+          "userRequest": "./klondike/board.js",
+          "loc": "3:0-29"
+        }
+      ],
+      "usedExports": false,
+      "providedExports": null,
+      "optimizationBailout": [],
+      "depth": 1,
+      "source": "(function () {\n  \"use strict\";\n\n  angular.module(\"klondike.board\", [\"ngRoute\", \"klondike.game\"])\n    .config([\"$routeProvider\", function ($routeProvider) {\n      $routeProvider\n        .when(\"/board\", {\n          templateUrl: \"klondike/board.html\",\n          controller: \"KlondikeController\"\n        })\n        .otherwise({redirectTo: \"/board\"});\n    }])\n    .controller(\"KlondikeController\", [\"$scope\", \"klondikeGame\", \"scoring\", function KlondikeController($scope, klondikeGame, scoring) {\n      klondikeGame.newGame();\n      $scope.game = klondikeGame;\n      $scope.scoring = scoring;\n    }])\n    .directive(\"sNoPile\", function () {\n      return {\n        restrict: \"E\",\n        template: \"<div class=\\\"no-pile\\\"></div>\"\n      };\n    })\n    .directive(\"sTableau\", function () {\n      return {\n        restrict: \"E\",\n        templateUrl: \"klondike/piles/tableau.html\"\n      };\n    })\n    .directive(\"sFoundation\", function () {\n      return {\n        restrict: \"E\",\n        templateUrl: \"klondike/piles/foundation.html\"\n      };\n    })\n    .directive(\"sCard\", function () {\n      return {\n        restrict: \"A\",\n        templateUrl: \"cards/card.html\",\n        scope: {\n          card: \"=\"\n        }\n      };\n    })\n    .directive(\"sRemainder\", function () {\n      return {\n        restrict: \"E\",\n        templateUrl: \"klondike/piles/remainder.html\"\n      };\n    })\n    .directive(\"sWaste\", function () {\n      return {\n        restrict: \"E\",\n        templateUrl: \"klondike/piles/waste.html\"\n      };\n    });\n})();\n"
+    },
+    {
+      "id": "./app/klondike/game.js",
+      "identifier": "/Users/pivotal/workspace/optimizing-web-apps-webpack/app/klondike/game.js",
+      "name": "./app/klondike/game.js",
+      "index": 4,
+      "index2": 3,
+      "size": 1871,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        0
+      ],
+      "assets": [],
+      "issuer": "/Users/pivotal/workspace/optimizing-web-apps-webpack/app/app.js",
+      "issuerId": "./app/app.js",
+      "issuerName": "./app/app.js",
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "reasons": [
+        {
+          "moduleId": "./app/app.js",
+          "moduleIdentifier": "/Users/pivotal/workspace/optimizing-web-apps-webpack/app/app.js",
+          "module": "./app/app.js",
+          "moduleName": "./app/app.js",
+          "type": "harmony import",
+          "userRequest": "./klondike/game.js",
+          "loc": "4:0-28"
+        }
+      ],
+      "usedExports": false,
+      "providedExports": null,
+      "optimizationBailout": [],
+      "depth": 1,
+      "source": "(function () {\n  \"use strict\";\n\n  angular.module(\"klondike.game\", [])\n    .service(\"klondikeGame\", [\"scoring\", KlondikeGame]);\n\n  function KlondikeGame(scoring) {\n    this.newGame = function newGame() {\n      var cards = new Deck().shuffled();\n      this.newGameFromDeck(cards);\n    };\n\n    this.newGameFromDeck = function (cards) {\n      scoring.newGame();\n      turnAllCardsDown(cards);\n      this.tableaus = dealTableaus(cards);\n      this.foundations = buildFoundations();\n      this.remainder = dealRemainder(cards);\n    };\n\n    function turnAllCardsDown(cards) {\n      cards.forEach(function (card) {\n        card.turnDown();\n      });\n    }\n\n    function dealTableaus(cards) {\n      var tableaus = [\n        new TableauPile(cards.slice(0, 1), scoring),\n        new TableauPile(cards.slice(1, 3), scoring),\n        new TableauPile(cards.slice(3, 6), scoring),\n        new TableauPile(cards.slice(6, 10), scoring),\n        new TableauPile(cards.slice(10, 15), scoring),\n        new TableauPile(cards.slice(15, 21), scoring),\n        new TableauPile(cards.slice(21, 28), scoring)\n      ];\n      tableaus.forEach(function (tableau) {\n        tableau.turnTopCardUp();\n      });\n      return tableaus;\n    }\n\n    function buildFoundations() {\n      return _.range(1, 5)\n        .map(function () {\n          return new FoundationPile([], scoring);\n        });\n    }\n\n    function dealRemainder(cards) {\n      return new RemainderPile(cards.slice(28), scoring);\n    }\n  }\n\n  KlondikeGame.prototype.tryMoveTopCardToAnyFoundation = function (sourcePile) {\n    if (sourcePile.isEmpty()) {\n      return;\n    }\n    var foundationThatWillAccept = _.find(this.foundations, function (foundation) {\n      return foundation.willAcceptCard(sourcePile.topCard());\n    });\n    if (foundationThatWillAccept) {\n      foundationThatWillAccept.moveCardsFrom(sourcePile);\n    }\n  };\n\n})();\n"
+    },
+    {
+      "id": "./app/klondike/klondike.js",
+      "identifier": "/Users/pivotal/workspace/optimizing-web-apps-webpack/app/klondike/klondike.js",
+      "name": "./app/klondike/klondike.js",
+      "index": 2,
+      "index2": 1,
+      "size": 93,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        0
+      ],
+      "assets": [],
+      "issuer": "/Users/pivotal/workspace/optimizing-web-apps-webpack/app/app.js",
+      "issuerId": "./app/app.js",
+      "issuerName": "./app/app.js",
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "reasons": [
+        {
+          "moduleId": "./app/app.js",
+          "moduleIdentifier": "/Users/pivotal/workspace/optimizing-web-apps-webpack/app/app.js",
+          "module": "./app/app.js",
+          "moduleName": "./app/app.js",
+          "type": "harmony import",
+          "userRequest": "./klondike/klondike.js",
+          "loc": "2:0-32"
+        }
+      ],
+      "usedExports": false,
+      "providedExports": null,
+      "optimizationBailout": [],
+      "depth": 1,
+      "source": "angular.module(\"klondike\", [\n  \"klondike.game\",\n  \"klondike.board\",\n  \"klondike.scoring\"\n]);\n"
+    },
+    {
+      "id": "./app/klondike/scoring.js",
+      "identifier": "/Users/pivotal/workspace/optimizing-web-apps-webpack/app/klondike/scoring.js",
+      "name": "./app/klondike/scoring.js",
+      "index": 1,
+      "index2": 0,
+      "size": 1399,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        0
+      ],
+      "assets": [],
+      "issuer": "/Users/pivotal/workspace/optimizing-web-apps-webpack/app/app.js",
+      "issuerId": "./app/app.js",
+      "issuerName": "./app/app.js",
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "reasons": [
+        {
+          "moduleId": "./app/app.js",
+          "moduleIdentifier": "/Users/pivotal/workspace/optimizing-web-apps-webpack/app/app.js",
+          "module": "./app/app.js",
+          "moduleName": "./app/app.js",
+          "type": "harmony import",
+          "userRequest": "./klondike/scoring.js",
+          "loc": "1:0-31"
+        }
+      ],
+      "usedExports": false,
+      "providedExports": null,
+      "optimizationBailout": [],
+      "depth": 1,
+      "source": "function Scoring() {\n  \"use strict\";\n\n  this.score = 0;\n\n  this.newGame = function () {\n    this.score = 0;\n  };\n  this.tableauCardTurnedUp = function () {\n    this.score += 5;\n  };\n  this.dropped = function (source, destionation) {\n    this.score += scoreForMoving(source, destionation) || 0;\n  };\n  this.wasteRecycled = function () {\n    this.score = Math.max(this.score - 100, 0);\n  };\n\n  function scoreForMoving(source, destionation) {\n    if (destionation.name === \"TableauPile\") {\n      if (source.name === \"FoundationPile\") {\n        return -15;\n      }\n      return 5;\n    }\n    if (destionation.name === \"FoundationPile\") {\n      if (source.name === \"TableauPile\" || source.name === \"WastePile\") {\n        return 10;\n      }\n    }\n  }\n}\n\nconsole.log(\"[scoring] was evaluated\");\nif (module.hot) {\n  //module can update itself.\n  module.hot.accept(console.log.bind(console));\n  const doc = angular.element(document);\n  const injector = doc.injector();\n  if (injector) {\n    const actualService = injector.get(\"scoring\");\n    const newScoringService = new Scoring();\n    Object.keys(actualService)\n      .filter(key => typeof actualService[key] === \"function\")\n      .forEach(key => actualService[key] = newScoringService[key]);\n    doc.find(\"html\").scope().$apply();\n    console.info(\"[scoring] Hot Swapped!!\");\n  }\n}\n\nangular.module(\"klondike.scoring\", [])\n  .service(\"scoring\", [Scoring]);\n"
+    }
+  ],
+  "filteredModules": 0,
+  "children": []
+}
