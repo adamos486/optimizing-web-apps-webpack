@@ -29,6 +29,10 @@ module.exports = function (env) {
       new webpack.DefinePlugin({
         ENV_IS_DEVELOPMENT: isDevelopment,
         ENV_IS: JSON.stringify(env)
+      }),
+      new webpack.SourceMapDevToolPlugin({
+        filename: '[name].map',
+        noSources: false,
       })
     ]
   };
